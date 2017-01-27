@@ -96,7 +96,7 @@
       - nginx
       - -g
       - daemon off;
-      image: playbook-etherpad-nginx:20170125153120
+      image: fusordevel/playbook-etherpad-nginx
       ports:
       - 80
     replace: true
@@ -116,7 +116,7 @@
       name: mariadb
       args:
       - mysqld
-      image: playbook-etherpad-mariadb:20170125153120
+      image: fusordevel/playbook-etherpad-mariadb
       ports:
       - 3306
     replace: true
@@ -134,7 +134,7 @@
     containers:
     - securityContext: {}
       name: etherpad
-      image: playbook-etherpad-etherpad:20170124161649
+      image: fusordevel/playbook-etherpad-etherpad
       args:
       - /opt/etherpad-lite/bin/run.sh
       ports:
