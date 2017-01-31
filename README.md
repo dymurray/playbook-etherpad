@@ -13,6 +13,7 @@ Adapted from https://github.com/yatesr/playbook-etherpad
 
 ## Vars and setup
 * TODO
+
 ## Running the application
 `docker run -e "OPENSHIFT_TARGET=<openshift_target>" -e "OPENSHIFT_USER=<user>" -e "OPENSHIFT_PASS=<password>" fusordevel/etherpad-ansibleapp provision`
 ## Tearing down the application
