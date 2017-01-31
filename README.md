@@ -1,32 +1,23 @@
-playbook-etherpad
+etherpad-ansibleapp
 ======================
 
-An Ansible playbook for deploying [etherpad lite](https://github.com/ether/etherpad-lite).  
-Adapted from https://github.com/p2pu/marvin/tree/master/etherpad-lite-install
+An AnsibleApp for deploying [etherpad lite](https://github.com/ether/etherpad-lite).  
+Adapted from https://github.com/yatesr/playbook-etherpad
 
 ## What it does
-* Installs nodejs, mysql-server, nginx, etherpad-lite, and abiword.
-* Configures nginx and etherpad-lite.
-* Clones etherpad and configures settings.
+* Installs nodejs, mysql-server, nginx, etherpad-lite.
+* Deploys etherpad application to Openshift
 
 ## Requirements
-* Ansible installed on client.
-* Debian based distro installed on server (tested with Ubuntu 12.04).
-* root username/password on server, ssh installed.
+* Must have docker installed and parameters to authenticate against OCP cluster
 
 ## Vars and setup
-You will need to copy `group_vars/all.example` to `group_vars/all` then edit `group_vars/all`.
+* TODO
+## Running the application
+`docker run -e "OPENSHIFT_TARGET=<openshift_target>" -e "OPENSHIFT_USER=<user>" -e "OPENSHIFT_PASS=<password>" fusordevel/etherpad-ansibleapp provision`
+## Tearing down the application
+`docker run -e "OPENSHIFT_TARGET=<openshift_target>" -e "OPENSHIFT_USER=<user>" -e "OPENSHIFT_PASS=<password>" fusordevel/etherpad-ansibleapp deprovision`
 
-Also copy `hosts.example` to `hosts` and enter the ip or hostname of your server in place of the ip.
-
-By default we try to login with root via ssh, if you have another user with sudo access on your server(e.g. Amazon) edit `install.yml` and change the user and uncomment the sudo line.
-
-## Running the play
-`ansible-playbook -k -i hosts install.yml`
-
-Drop the -k if you are logging in with a public/private key.
-
-`ansible-playbook -i hosts install.yml`
 
 TODO:  
-  Configure nginx SSL reverse proxy, modularize play
+  Vars
